@@ -18,9 +18,9 @@ div1 {
     padding-left: 0;
     margin-right: 0.5em;
     padding-right: 0;
-    border: solid 3px #08396d;
-    width: 5em;
-    height: 2em;
+   /* border: solid 3px #08396d;*/
+    width: 8 em;
+   /* height: 8 em; */
     padding-top: 0.5em;
     text-align: center;
     font-family:   "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -34,9 +34,9 @@ div2 {
     padding-left: 0;
     margin-right: 1.7em;
     padding-right: 0;
-    border: solid 3px #08396d;
-    width: 5em;
-    height: 2em;
+    /*border: solid 3px #08396d;*/
+    width: 8 em;
+    /*height: 8 em;*/
     padding-top: 0.5em;
     text-align: center;
     font-family:   "Palatino Linotype", "Book Antiqua", Palatino, serif;
@@ -51,25 +51,48 @@ font-family:  "Palatino Linotype", "Book Antiqua", Palatino, serif;}
 
 <h2>  示例  </h2>
 
-  <p> 在此次调查里，您会听到几段小对话，每一个对话结束后，会出现两幅图片，如下所示。听完句子后，请您从两幅图片中选取一幅。
+  <p> 在此次调查里，您会听到几段小对话，每一个对话结束后，会出现两幅图片，如下所示。
 </p>
 <br>
 
+
+<!--Autoplay audio -->
 <center>
+
+<script>
+var aud = document.getElementById("myAudio");
+aud.autoplay = true;
+aud.load();
+</script>
+
+<p id="myAudio">
+<audio controls>
+  <source src="/Users/ceshi/Documents/Github/ExhZSSPCb/chunk_includes/sound/Prac1.wav" type="audio/wav">
+  <source src="/Users/ceshi/Documents/Github/ExhZSSPCb/chunk_includes/sound/Prac1-t.MP3" type="audio/mpeg">
+</audio>
+</p>
+
+
+	
   <table>
+ <!--
     <tr>
       <td>
         <p>  <center> <font size="4"> 有三个球是红色的。 </font> </center> </p>
       </td>
 </tr>
+-->
 
 <tr>
   <td>
-    <center> <img width= '200px' src='http://cogexpe.scicog.fr/PSIM/Non-Max/False_A_dots_blue_square_below_.png' border='2'></center>
+    <center> 
+     <div1 align='left'> <img  src='/Users/ceshi/Documents/Github/ExhZSSPCb/chunk_includes/images/Prac1.png'> </div1>
+     <div2 align='right'> <img src='/Users/ceshi/Documents/Github/ExhZSSPCb/chunk_includes/images/CB.png'> </div2>
+     </center>
   </td>
 </tr>
 
-
+<!--
 <tr>
 
   <td>
@@ -81,19 +104,19 @@ font-family:  "Palatino Linotype", "Book Antiqua", Palatino, serif;}
   </td>
 
 </tr>
+-->
 
 </table>
 </center>
 <br>
-
-
 <p>
-上面两幅图里面，左侧图里有三个球是红色的，与对话相符，因此点击 <span style="color: #08396d; font-weight:bold">左图 </span> 或者在键盘上按<span style="color: #08396d; font-weight:bold">"Z"</span>.
+听完句子后，请您从两幅图片中选取一幅。有一些对话下面的图被黑屏遮住了，请你根据没遮住的图片猜测被遮住的图片是否与对话相符。
+</p>
+<p>
+上面两幅图里面，左侧图里有一直大熊猫，但没有草莓，因此该图与对话相符。根据猜测，右图与对话相符，在键盘上按<span style="color: #08396d; font-weight:bold">"Z"</span>.
 </p>
 
-<p>
-有一些对话下面的图被黑屏遮住了，比如下面的例子：
-</p>
+
 <br>
 
 <center>

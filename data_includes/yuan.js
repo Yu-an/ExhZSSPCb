@@ -5,7 +5,7 @@ Modified based on the template of
 Template that gives examples of everything Ibex can do for experiments
 */
 
-var shuffleSequence = seq("intro", "bio", "practice", sepWith("sep", seq("story")), sepWith("sep", seq("image")), sepWith("sep", startsWith("q")));
+var shuffleSequence = seq("intro", "practice", sepWith("sep", seq("story")), sepWith("sep", seq("image")), sepWith("sep", startsWith("q")));
 var practiceItemTypes = ["practice"];
 var centerItems = true;
 
@@ -14,8 +14,8 @@ var defaults = [
     "Separator", {
         transfer: 1000, //wait for 1000ms
           //other options: "keypress", "click"
-        normalMessage: "Please wait for the next sentence.", //message to be displayed
-        errorMessage: "Wrong. Please wait for the next sentence." //message to be displayed in red
+        normalMessage: "请听下一段对话。", //message to be displayed
+        errorMessage: "错误，请听下一段对话。" //message to be displayed in red
     },
 
     "Message", {
@@ -84,10 +84,10 @@ var items = [
     */
 
     //ends after timer (1000ms)
-    ["sep", "Separator", {transfer: 1000, normalMessage: "Please wait for the next sentence."}],
+    //["sep", "Separator", {transfer: 1000, normalMessage: "请听下一段对话。"}],
 
     //ends when key is press
-    ["sep", "Separator", {transfer: "keypress", normalMessage: "Please press any key to continue."}],
+    ["sep", "Separator", {transfer: "keypress", normalMessage: "按任意键继续"}],
 
 
     /*
@@ -109,6 +109,33 @@ var items = [
         }  
         } ],
       
+	["practice","PictureAccept", {s:  {audio: "https://pan.baidu.com/s/1boPVVTt" & "https://pan.baidu.com/s/1slNbLMX"},
+                            //specify to press key "A" for image 1 in the as list, etc...
+                            as: [["https://pan.baidu.com/s/1kUXhkhx"],
+                                 ["https://pan.baidu.com/s/1eRCY9Cu"]]}],
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    ===================
+    
+    	
 	["bio",
       //type
       "Message",
@@ -116,15 +143,13 @@ var items = [
       {html: { include: "Intro.html" },
     } ],
 
-    /*
-    ===================
     TEXT
     Controllers that work with Text and Questions
     ===================
     */
 
     //text displayed word by word
-    ["practice", "DashedSentence", {s: "这是一个测试"}],
+  //  ["practice", "DashedSentence", {s: "这是一个测试"}],
 
     //all text with MC question
     ["story", "Message", {html: "<center>This is a story you can see all at once!<br><br>Tanya and John were racing. She won.<br><b>Press any key to continue.</b></center>"},
