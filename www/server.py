@@ -1576,7 +1576,7 @@ def control(env, start_response):
             f = None
             try:
                 for fname in os.listdir(os.path.join(PWD, CFG['CHUNK_INCLUDES_DIR'])):
-                    if fname.endswith(".wav") or fname.endswith(".mp3") or fname.endswith("m4a"):
+                    if fname.endswith(".wav") or fname.endswith(".mp3") or fname.endswith("m4a") or fname.startswith("."):
                         continue
                     f = None
                     try:
@@ -1596,6 +1596,7 @@ def control(env, start_response):
                 return ["<html><body><h1>500 Internal Server Error</h1></body></html>"]
 
             start_response('200 OK', [('Content-Type', 'text/plain; charset=UTF-8')]) # Still trying to support IE 6 LOL
+            print jsondict
             return [dict_to_json(jsondict)]
 
         # or a resource?

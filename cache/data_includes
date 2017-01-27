@@ -5,7 +5,7 @@ Modified based on the template of
 Template that gives examples of everything Ibex can do for experiments
 */
 
-var shuffleSequence = seq("intro", "bio", "practice", sepWith("sep", seq("story")), sepWith("sep", seq("image")), sepWith("sep", startsWith("q")));
+var shuffleSequence = seq("intro", "practice", sepWith("sep", seq("story")), sepWith("sep", seq("image")), sepWith("sep", startsWith("q")));
 var practiceItemTypes = ["practice"];
 var centerItems = true;
 
@@ -109,6 +109,33 @@ var items = [
         }  
         } ],
       
+	["practice","PictureAccept", {s:  {audio: "https://pan.baidu.com/s/1boPVVTt" & "https://pan.baidu.com/s/1slNbLMX"},
+                            //specify to press key "A" for image 1 in the as list, etc...
+                            as: [["https://pan.baidu.com/s/1kUXhkhx"],
+                                 ["https://pan.baidu.com/s/1eRCY9Cu"]]}],
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
+    ===================
+    
+    	
 	["bio",
       //type
       "Message",
@@ -116,15 +143,13 @@ var items = [
       {html: { include: "Intro.html" },
     } ],
 
-    /*
-    ===================
     TEXT
     Controllers that work with Text and Questions
     ===================
     */
 
     //text displayed word by word
-    ["practice", "DashedSentence", {s: "这是一个测试"}],
+  //  ["practice", "DashedSentence", {s: "这是一个测试"}],
 
     //all text with MC question
     ["story", "Message", {html: "<center>This is a story you can see all at once!<br><br>Tanya and John were racing. She won.<br><b>Press any key to continue.</b></center>"},
