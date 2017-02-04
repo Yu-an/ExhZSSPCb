@@ -1,14 +1,15 @@
 // ############################  GENERAL SETTINGS ##########################
 //
 // Order of presentation.
-var shuffleSequence = seq(//"Instructions","Practice",
-                          "Tutorial",
-                          rshuffle(startsWith("GoBack"),startsWith("Stop"),startsWith("GoFirst"),startsWith("NeverGo")),
-                          "PostExp");
+var shuffleSequence = seq(//"Bio","Practice",
+                          "Tutorial"
+                          //,rshuffle(startsWith("GoBack"),startsWith("Stop"),startsWith("GoFirst"),startsWith("NeverGo")),
+                          //"PostExp"
+                          );
 // No progressbar
 var showProgressBar = false;
 // Where we will look for the ressources
-var host = "https://raw.githubusercontent.com/Yu-an/ExhZSSPCb/master/chunk_includes/";
+var host = "http://files.lab.florianschwarz.net/ibexfiles/Pictures/"//"https://raw.githubusercontent.com/Yu-an/ExhZSSPCb/master/chunk_includes/";
 var defaults = [
     "DynamicQuestion", {
         clickablePictures: false,
@@ -57,7 +58,7 @@ function img(picture) {
 
 // General list of items
 var items = [
-    ["intro",
+    /*["Bio",
       //type
       "Form",
       //obligatory option that includes a HTML file that is a questionnaire
@@ -66,18 +67,18 @@ var items = [
         //age has to be a number
         age: function (s) { if (s.match(/^\d+$/)) return true; else return "年龄只能为数字"; }
         }  
-        } ],
+        } ],*/
     
     // ########        FIRST TUTORIAL SCREEN       ########
     ["Tutorial", "DynamicQuestion", {
-        question: "练习",
+        question: "Tutorial",
         answers: [],
         elements: [
               "<h2 id='title'>练习</h2>",
-              "<p id='intro'>实验开始前，让我们先看一个例子。</p>",            
+              "<p id='intro'>感谢您的参与！</p>",            
               TT("#intro", "请单击 '>>' 继续。", ">>"),
               {pause: "key\x01"},
-              //"<p id='proceed'>The next screen will show you what a trial looks like.</p>",
+              "<p id='proceed'>接下来将为您介绍我们的实验。</p>",
               TT("#proceed", "这个对话框将提示您如何继续完成操作。", ">>"),
               {pause: "key\x01"}
         ]
@@ -91,13 +92,14 @@ var items = [
               True: ["J", "J: <b>右图</b>"]
         },
         elements: [
-              "<b>练习</b> <span id='score' />",
+              "<b>得分</b> <span id='score' />",
               //Audio file type MP3 should be speficied, as mpeg
-              "<p id='audio'> "<audio src= 'https://raw.githubusercontent.com/Yu-an/ExhZSSPCb/master/chunk_includes/sound/Prac1-t.MP3' type='audio/mpeg' controls='controls' autoplay='autoplay'> </audio>",</p>",
+              "<p id='sentence'> </p>",
+              "<audio src= 'https://raw.githubusercontent.com/Yu-an/ExhZSSPCb/master/chunk_includes/sound/Prac1-t.MP3' type='audio/mpeg' controls='controls' autoplay='autoplay'> </audio>",
               $("<div id='pic'>").append(
-                  newCalendar([{person: "Prac1.png", wednesday:getCoveredPic("Pract1-uncover.png", goodClick)},])
+                  newCalendar([{person: "orchard.png", wednesday:getCoveredPic("dress.png", goodClick)}])
               ),
-              {func: function(t){ $("#score").html(score); $("#monday0, #tuesday0").attr("dontClick", true); }},
+              {func: function(t){ $("#score").html(score); $("#wednesday0").attr("dontClick", true); }},
               TT(".patches", "在接下来的实验中，你将听到笑笑和淘淘的几段对话。每段对话都描述了一幅图片"+
                              "每段对话结束后，会出现两幅图。其中一幅图被黑幕遮住了。两幅图片中，只有一幅是笑笑和淘淘描述的图片。", ">>", "ml"),
               {pause: "key\x01"},
@@ -114,14 +116,14 @@ var items = [
               {pause: "key\x01"},
               {func: function(t){ 
                   $("#wednesday0").removeAttr("dontclick");
-                  t.safeBind($("wednesday0"), "click", function() {
+                  t.safeBind($("#wednesday0"), "click", function() {
                       if ($(this).attr("dontclick") != undefined) return;
                       t.justClickedOn = $(this);
                       t.unpause(1);
                   });
               }},
               {pause: "key\x01"},
-              {func: function(t){ 
+              /*{func: function(t){ 
                   var tt = t.justClickedOn.tooltip({content: "请单击黑幕查看被遮住的图片。", delay: ">>", xoffset: -0.5});
                   $("#wednesday0").attr("dontclick", true);
                   t.safeBind(tt.find("span.ttValidator"), "click", function() { t.unpause(1); });
@@ -129,10 +131,10 @@ var items = [
               }},
               {pause: "key\x01"},
               {func: function(t){
-                  if (t.justClickedOn.attr("id") == "wednesday0") $("#tuesday0").removeAttr("dontclick");
-                  else $("#monday0").removeAttr("dontclick");
+                  if (t.justClickedOn.attr("id") == "wednesday0") $("#person0").removeAttr("dontclick");
+                  else $("#person0").removeAttr("dontclick");
               }},
-              {pause: "key\x01"},
+              {pause: "key\x01"},*/
               TT("#True span", "拿掉黑幕，我们发现被遮住的图片和对话内容相符。"+
                                "因此，请在键盘上按'J' 选择被遮住的图片。", ">>", "ml"),
               {func: function(t){ $("wednesday0").attr("dontclick", true); }},
@@ -150,17 +152,15 @@ var items = [
                   });
               }}
         ]
-    }
-    ]
-/*
-    ,
+    }],
+
     // ########        THIRD TUTORIAL SCREEN       ########    
-    ["Tutorial", "DynamicQuestion", {
+/*    ["Tutorial", "DynamicQuestion", {
         enabled: false,
         question: "Tutorial",
         answers: {
-              False: ["F", "F: <b>左图</b>"],
-              True: ["J", "J: <b>右图</b>"]
+              False: ["F", "F: <b>False</b>"],
+              True: ["J", "J: <b>True</b>"]
         },
         elements: [
               "<b>Tutorial, Score:</b> <span id='score' />",
@@ -229,7 +229,7 @@ var items = [
 
         ]
     }]
-    */
+*/      
     ].concat(
     GetItemFrom(data, null, {
         ItemGroup: ["item","Group"],
@@ -270,7 +270,7 @@ var items = [
                      ];
               }
           }]
-
     }));
+
 
 

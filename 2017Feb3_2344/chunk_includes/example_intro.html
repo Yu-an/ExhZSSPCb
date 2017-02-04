@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-Ch">
+
+<head>
+	<title> 中文语感调查 </title>
+	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    body {
+      background: url("http://s12.postimg.org/cosr5owot/QBack.png");
+      text-align: left;
+      font-size: 88%;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      text-align: left;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .body{
+      width: 100%;
+    }
+
+    form{
+      margin: 0 auto;
+      width: 90%;
+      clear: both;
+      padding: 2%;
+      border: 1px;
+      border-style: solid;
+      box-shadow: 10px 10px 5px #888888;
+      background-color: white;
+    }
+
+    input[type=submit] {
+      width: 135px;
+      height: 70px;
+      cursor:pointer;
+    }
+  </style>
+</head>
+
+
+<body class="body">
+
+<!--
+BEFORE THE PAGE CONTENT
+You might want to cache the images you are using in the experiment
+if timings are going to be recorded during the experiment.
+Below is an example of how to load an image without showing it.
+-->
+<div style="display:none">
+  <!-- List images here in the same syntax -->
+  <!-- <img src = "___image src____" /> -->
+  <img src = "http://www.sjsu.edu/linguistics/pics/lld_wordle_660px.jpg" />
+</div>
+
+
+
+<!-- Start of the actual, visible body of the file -->
+<form style="width: 40em;">
+<h1>您好!</h1>
+<p>
+感谢您参加此次关于中文语感的调查！
+</p>
+</p>
+<p>
+<b>在此次调查中，您将会 </b><br>听到一些中文的句子，然后根据所听到的内容回答问题。
+<br>在开始之前，请您填写一些必要的信息，如您的姓名、年龄、工作和平时主要使用的语言。您的信息将仅用于此次语感研究。
+</p>
+<!--<b>如果您有任何问题: </b><br>请联系 If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Research Ethics Board Office at __________ or access their website at: _____URL______
+</p>-->
+
+<!-- consent validation -->
+<table>
+<tr>
+  <td><i>我已阅读以上内容，并同意参加此次实验。</i></td>
+  <td><input name="consent", class = "obligatory", type="radio" value="yes" id="consentyes"/>
+      <label for="consentcx">同意</label></td>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="consent"></label></td>
+</tr>
+
+</table>
+
+
+
+<h1> 背景信息 </h1>
+<table>
+<tr>
+<td colspan="2" style="width: 30em; padding-bottom: 2em;">
+<!-- <i>(The form below is just a rough example showing all of the input controls that work properly
+with Ibex.)</i> -->
+</td>
+</tr>
+
+<!-- question with obligatory answer that has to be a number -->
+<tr>
+  <td>年龄</td><td><input name="age" type="text" size="30" class="obligatory" /></td>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="age"></label></td>
+</tr>
+
+<!--Gender -->
+<tr>
+  <td>性别</td><td><input name="gender" type="radio" value="yes" class="obligatory" id="gendermale" /><label for="gendermale">男</label>
+                   <input name="gender" type="radio" value="no" id="genderfemale"/>
+                   <label for="genderfemale">女</label>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="gender"></label></td>
+</tr>
+
+<!-- question with yes or no answer -->
+<tr>
+  <td>您是否一直使用普通话？</td><td><input name="mandarin" type="radio" value="yes" class="obligatory" id="mandarinyes" /><label for="mandarinyes">是</label>
+                   <input name="mandarin" type="radio" value="no" id="mandarinno"/>
+                   <label for="madnarinno">否</label>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="mandarin"></label></td>
+</tr>
+
+
+<!-- question with a small text box to answer, answer is obligatory -->
+<tr>
+  <td>平时主要使用的语言是： </td><td><input name="language" type="text" size="30" class="obligatory" /></td>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="language"></label></td>
+</tr>
+
+
+<!-- question with a big text box to answer, answer is NOT obligatory -->
+<tr>
+  <td colspan="2">请您留下您的联系方式（只用于跟踪调查，选填）</td>
+</tr>
+<tr>
+  <td colspan="2">
+    <textarea name="otherlang" rows="5" cols="40"></textarea>
+  </td>
+</tr>
+
+
+
+
+
+
+</table>
+</form>
+
+
+
+</body>
+</html>

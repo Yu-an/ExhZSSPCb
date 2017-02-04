@@ -1,0 +1,14 @@
+ExhPSI documentation
+
+2017Feb3 23: 17
+Exp file:  /Users/ceshi/Documents/Github/ExhZSSPCb/2017Feb3_2317
+Backup: /Users/ceshi/Dropbox/Dipper/Exhaustivity/Exp5/Ibex\ backup/ExhZSSPCb
+Changes made on 17:00:
+* datadata(1).js: adds comma after <audio> at line 98
+*commented line 126-137, because in Jeremy's tutorial one has to remove two covered box
+*commented the whole Third part of the tutorial; currently the effect of which is unknown.
+*the pictures are hosted on github; can't access at this moment
+## Need to add actual data to the file ##
+*Try http://www.litvoid.com/audio/Prac1-t.mp3 instead
+
+
